@@ -1,0 +1,17 @@
+image: gitpod/workspace-android-23
+
+tasks:
+  - name: Setup Android Environment
+    init: |
+      yes | sdkmanager --licenses
+      sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+      sdkmanager "cmdline-tools;latest"
+      echo "export ANDROID_HOME=/home/gitpod/android-sdk" >> ~/.bashrc
+      echo "export PATH=\$PATH:\$ANDROID_HOME/platform-tools" >> ~/.bashrc
+      source ~/.bashrc
+
+vscode:
+  extensions:
+    - "mathiasfrohlich.Kotlin"
+    - "naco-siren.gradle-language"
+    - "ms-vscode.vscode-android-tools"
